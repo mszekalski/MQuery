@@ -1,7 +1,8 @@
 const View = require('./snake-view.js');
-const $l = require('../../lib/main.js');
+import $l from '../../lib/main.js';
 
-$l(function() {
+
+$l(() => {
   const root = $l('.snake-game');
   new View(root);
 });
