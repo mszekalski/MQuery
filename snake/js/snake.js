@@ -1,6 +1,5 @@
 const Coord = require('./coord.js');
-
-
+const $l = require('../../lib/main.js');
 
 class Snake {
   constructor(board) {
