@@ -1,2 +1,5 @@
 /.DS_Store
 /lib/index.html
+
+/snake/node_modules/
+/snake/js/dist/
