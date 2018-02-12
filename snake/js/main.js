@@ -1,10 +1,10 @@
-const View = require('./snake-view.js');
+const SnakeView = require('./snake-view');
 import $l from '../../lib/main.js';
 
+$l(function() {
 
-$l(() => {
   const root = $l('.snake-game');
-  new View(root);
+  new SnakeView(root);
 });
 
 window.$l = $l;

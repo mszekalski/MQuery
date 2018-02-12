@@ -12,9 +12,11 @@ class Snake {
 
   }
 
-  turn() {
+  turn(dir) {
 
   }
 
 
 }
+
+module.exports = Snake;
