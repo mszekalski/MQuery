@@ -1,5 +1,7 @@
-const Snake = require('./snake.js');
-const $l = require('../../lib/main.js');
+
+// const Snake = require('./snake.js');
+import $l from '../../lib/main.js';
+import Snake from './snake.js';
 
 class Board {
   constructor(dim) {
@@ -24,4 +26,4 @@ class Board {
 
 }
 
-module.exports = Board;
+export default Board;

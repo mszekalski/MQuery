@@ -1,5 +1,6 @@
-const Coord = require('./coord.js');
-const $l = require('../../lib/main.js');
+// const Coord = require('./coord.js');
+import $l from '../../lib/main.js';
+import Coord from './coord.js';
 
 class Snake {
   constructor(board) {
@@ -19,4 +20,4 @@ class Snake {
 
 }
 
-module.exports = Snake;
+export default Snake;
