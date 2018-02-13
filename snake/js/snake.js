@@ -5,7 +5,9 @@ import Coord from './coord.js';
 class Snake {
   constructor(board) {
     this.direction = 'N';
-    this.segments = [];
+    this.board = board;
+    const center = new Coord(Math.floor(board.dim/2), Math.floor(board.dim/2));
+    this.segments = [center];
     this.board = board;
   }
 
@@ -15,6 +17,7 @@ class Snake {
 
   turn(dir) {
 
+    this.direction = dir;
   }
 
 

@@ -8,15 +8,13 @@ class View {
     this.board = new Board(20);
     this.setUpGrid();
     $l('window').on("keydown", this.handleKeyEvent.bind(this));
-
-    // setInterval(this.step, 500);
+    setInterval(this.step, 500);
   }
 
 
   handleKeyEvent(event) {
-    
-    if (event.key === 'ArrowUp') {
 
+    if (event.key === 'ArrowUp') {
       this.board.snake.turn("N");
     } else if (event.key === 'ArrowDown') {
       this.board.snake.turn("S");
