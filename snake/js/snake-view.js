@@ -13,7 +13,6 @@ class View {
 
 
   handleKeyEvent(event) {
-
     if (event.key === 'ArrowUp') {
       this.board.snake.turn("N");
     } else if (event.key === 'ArrowDown') {
@@ -27,11 +26,13 @@ class View {
 
   render() {
 
+  }
+
+  step() {
 
   }
 
   setUpGrid() {
-
     let html = '';
     for (let i = 0; i < this.board.dim; i++) {
       html += "<ul>";
@@ -45,9 +46,7 @@ class View {
     this.$li = this.$el.find('li');
   }
 
-  step() {
 
-  }
 
 
 }
