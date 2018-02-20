@@ -18,11 +18,12 @@ class Board {
 
   render() {
     const grid = this.grid;
-
     for (let i = 0; i < this.snake.segments.length; i++) {
       let segment = this.snake.segments[i];
       grid[segment.i][segment.j] = 'S';
     }
+
+    
   }
 
 

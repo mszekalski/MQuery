@@ -9,6 +9,8 @@ class View {
     this.setUpGrid();
     $l('window').on("keydown", this.handleKeyEvent.bind(this));
     setInterval(this.step, 500);
+    this.render();
+    
   }
 
 
@@ -25,6 +27,11 @@ class View {
   }
 
   render() {
+    this.updateClasses(this.board.snake.segments, 'snake');
+  }
+
+  updateClasses(coords, className) {
+
 
   }
 
