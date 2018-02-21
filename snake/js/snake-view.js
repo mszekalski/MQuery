@@ -10,7 +10,7 @@ class View {
     $l('window').on("keydown", this.handleKeyEvent.bind(this));
     setInterval(this.step, 500);
     this.render();
-    
+
   }
 
 
@@ -31,8 +31,11 @@ class View {
   }
 
   updateClasses(coords, className) {
-
-
+    $l('li').filter(`${className}`).removeClass();
+    for (let i = 0; i < coords.length; i++){
+      const flat = (coords[i].i * this.board.dim) + coords[i].j;
+      $l('li').eq(flat).addClass(className);
+    }
   }
 
   step() {
