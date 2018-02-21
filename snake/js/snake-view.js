@@ -15,6 +15,7 @@ class View {
 
 
   handleKeyEvent(event) {
+    debugger
     if (event.key === 'ArrowUp') {
       this.board.snake.turn("N");
     } else if (event.key === 'ArrowDown') {

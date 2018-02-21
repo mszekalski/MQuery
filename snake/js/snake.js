@@ -12,12 +12,13 @@ class Snake {
   }
 
   head() {
-    
+    return this.segments.slice(-1)[0];
   }
 
 
   move() {
-
+    
+    this.segments.push(this.head().plus(Snake.MOVES[this.direction]));
   }
 
   turn(dir) {
