@@ -8,8 +8,8 @@ class View {
     this.board = new Board(20);
     this.setUpGrid();
     $l('window').on("keydown", this.handleKeyEvent.bind(this));
-    setInterval(this.step, 500);
-    this.render();
+    setInterval(this.step.bind(this), 500);
+
 
   }
 
@@ -39,7 +39,10 @@ class View {
   }
 
   step() {
-
+    if (this.board.snake.segments.length > 0) {
+      this.board.snake.move();
+      this.render();
+    }
   }
 
   setUpGrid() {

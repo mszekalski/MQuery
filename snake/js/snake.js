@@ -11,6 +11,11 @@ class Snake {
     this.board = board;
   }
 
+  head() {
+    
+  }
+
+
   move() {
 
   }
@@ -21,6 +26,15 @@ class Snake {
   }
 
 
+
+
 }
+
+Snake.MOVES = {
+  N: new Coord(-1, 0),
+  S: new Coord(1, 0),
+  E: new Coord(0, 1),
+  W: new Coord(0, -1)
+};
 
 export default Snake;
