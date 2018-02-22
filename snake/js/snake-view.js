@@ -7,7 +7,7 @@ class View {
     this.$el = $el;
     this.board = new Board(20);
     this.setUpGrid();
-    $l('window').on("keydown", this.handleKeyEvent.bind(this));
+    $l(window).on("keydown", this.handleKeyEvent.bind(this));
     setInterval(this.step.bind(this), 500);
 
 
@@ -15,7 +15,7 @@ class View {
 
 
   handleKeyEvent(event) {
-    debugger
+    
     if (event.key === 'ArrowUp') {
       this.board.snake.turn("N");
     } else if (event.key === 'ArrowDown') {
