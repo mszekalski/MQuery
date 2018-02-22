@@ -17,8 +17,10 @@ class Snake {
 
 
   move() {
-    
+
     this.segments.push(this.head().plus(Snake.MOVES[this.direction]));
+    this.segments.shift();
+    
   }
 
   turn(dir) {

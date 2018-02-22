@@ -15,7 +15,7 @@ class View {
 
 
   handleKeyEvent(event) {
-    
+
     if (event.key === 'ArrowUp') {
       this.board.snake.turn("N");
     } else if (event.key === 'ArrowDown') {
@@ -32,11 +32,13 @@ class View {
   }
 
   updateClasses(coords, className) {
-    $l('li').filter(`${className}`).removeClass();
+    
+    $l('li').filter(`${className}`).removeClass(className);
     for (let i = 0; i < coords.length; i++){
       const flat = (coords[i].i * this.board.dim) + coords[i].j;
       $l('li').eq(flat).addClass(className);
     }
+
   }
 
   step() {
