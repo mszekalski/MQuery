@@ -9,6 +9,7 @@ class Snake {
     const center = new Coord(Math.floor(board.dim/2), Math.floor(board.dim/2));
     this.segments = [center];
     this.board = board;
+    
   }
 
   head() {
@@ -20,7 +21,7 @@ class Snake {
 
     this.segments.push(this.head().plus(Snake.MOVES[this.direction]));
     this.segments.shift();
-    
+
   }
 
   turn(dir) {
