@@ -16,13 +16,13 @@ class View {
 
   handleKeyEvent(event) {
 
-    if (event.key === 'ArrowUp') {
+    if (event.key === 'ArrowUp' && this.board.snake.direction !== "S") {
       this.board.snake.turn("N");
-    } else if (event.key === 'ArrowDown') {
+    } else if (event.key === 'ArrowDown' && this.board.snake.direction !== "N") {
       this.board.snake.turn("S");
-    } else if (event.key === 'ArrowRight') {
+    } else if (event.key === 'ArrowRight' && this.board.snake.direction !== "W") {
       this.board.snake.turn("E");
-    } else if (event.key === 'ArrowLeft') {
+    } else if (event.key === 'ArrowLeft' && this.board.snake.direction !== "E") {
       this.board.snake.turn("W");
     }
   }
@@ -33,7 +33,7 @@ class View {
   }
 
   updateClasses(coords, className) {
-    
+
     $l('li').filter(`${className}`).removeClass(className);
     for (let i = 0; i < coords.length; i++){
       const flat = (coords[i].i * this.board.dim) + coords[i].j;
