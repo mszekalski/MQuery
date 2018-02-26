@@ -29,6 +29,10 @@ class Board {
 
   }
 
+  validPos(coord) {
+    
+  }
+
 
 
 
