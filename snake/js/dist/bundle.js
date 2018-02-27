@@ -167,7 +167,7 @@ class View {
     this.board = new __WEBPACK_IMPORTED_MODULE_1__board_js__["a" /* default */](20);
     this.setUpGrid();
     Object(__WEBPACK_IMPORTED_MODULE_0__lib_main_js__["default"])(window).on("keydown", this.handleKeyEvent.bind(this));
-    setInterval(this.step.bind(this), 500);
+    setInterval(this.step.bind(this), 250);
 
 
   }
@@ -194,10 +194,12 @@ class View {
   updateClasses(coords, className) {
 
     Object(__WEBPACK_IMPORTED_MODULE_0__lib_main_js__["default"])('li').filter(`${className}`).removeClass(className);
+    
     for (let i = 0; i < coords.length; i++){
       const flat = (coords[i].i * this.board.dim) + coords[i].j;
       Object(__WEBPACK_IMPORTED_MODULE_0__lib_main_js__["default"])('li').eq(flat).addClass(className);
     }
+
 
   }
 
@@ -270,7 +272,9 @@ class Board {
   }
 
   validPos(coord) {
-    
+    if (coord.i < 0 || coord.i >= this.dim || coord.j < 0 || coord.j >= this.dim) {
+      return false;
+    }
   }
 
 
@@ -299,18 +303,36 @@ class Snake {
     const center = new __WEBPACK_IMPORTED_MODULE_1__coord_js__["a" /* default */](Math.floor(board.dim/2), Math.floor(board.dim/2));
     this.segments = [center];
     this.board = board;
-    
+    this.growth = 2;
+
   }
 
   head() {
     return this.segments.slice(-1)[0];
   }
 
+  eat() {
+    if (this.head().equals(this.board.apple.location)) {
+      
+      this.growth += 1;
+      return true;
+    } else {
+      return false;
+    }
+  }
 
   move() {
+    if (this.eat()) {
 
+      this.board.apple.replace();
+
+    }
     this.segments.push(this.head().plus(Snake.MOVES[this.direction]));
-    this.segments.shift();
+    if (this.growth > 0) {
+      this.growth -= 1;
+    } else {
+      this.segments.shift();
+    }
 
   }
 
@@ -354,9 +376,6 @@ class Coord {
     return (this.i === coordinates.i) && (this.j === coordinates.j);
   }
 
-  isOpposite(coordinates){
-    return (this.i === (-1 * coordinates.i)) && (this.j === (-1 * coordinates.j));
-  }
 }
 
 /* harmony default export */ __webpack_exports__["a"] = (Coord);
@@ -399,11 +418,11 @@ class DOMNodeCollection {
   filter(className) {
     const filtered = [];
     for (let i = 0; i < this.HTMLElements.length; i++){
-      if (this.HTMLElements[i].className === className) {
+      if (this.HTMLElements[i].className.split(' ').includes(className)) {
         filtered.push(this.HTMLElements[i]);
       }
     }
-    
+
     return new DOMNodeCollection(filtered);
   }
 
@@ -509,9 +528,13 @@ class DOMNodeCollection {
 class Apple {
   constructor(board) {
     this.board = board;
-    this.location = new __WEBPACK_IMPORTED_MODULE_1__coord_js__["a" /* default */](Math.round(Math.random() * board.dim), Math.round(Math.random() * board.dim));
+    this.replace();
 
 
+  }
+
+  replace() {
+    this.location = new __WEBPACK_IMPORTED_MODULE_1__coord_js__["a" /* default */](Math.round(Math.random() * this.board.dim), Math.round(Math.random() * this.board.dim));
   }
 
 }

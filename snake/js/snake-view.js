@@ -8,7 +8,7 @@ class View {
     this.board = new Board(20);
     this.setUpGrid();
     $l(window).on("keydown", this.handleKeyEvent.bind(this));
-    setInterval(this.step.bind(this), 500);
+    setInterval(this.step.bind(this), 250);
 
 
   }
@@ -35,10 +35,12 @@ class View {
   updateClasses(coords, className) {
 
     $l('li').filter(`${className}`).removeClass(className);
+    
     for (let i = 0; i < coords.length; i++){
       const flat = (coords[i].i * this.board.dim) + coords[i].j;
       $l('li').eq(flat).addClass(className);
     }
+
 
   }
 

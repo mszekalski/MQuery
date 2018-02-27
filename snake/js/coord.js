@@ -13,9 +13,6 @@ class Coord {
     return (this.i === coordinates.i) && (this.j === coordinates.j);
   }
 
-  isOpposite(coordinates){
-    return (this.i === (-1 * coordinates.i)) && (this.j === (-1 * coordinates.j));
-  }
 }
 
 export default Coord;

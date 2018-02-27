@@ -9,18 +9,36 @@ class Snake {
     const center = new Coord(Math.floor(board.dim/2), Math.floor(board.dim/2));
     this.segments = [center];
     this.board = board;
-    
+    this.growth = 2;
+
   }
 
   head() {
     return this.segments.slice(-1)[0];
   }
 
+  eat() {
+    if (this.head().equals(this.board.apple.location)) {
+      
+      this.growth += 1;
+      return true;
+    } else {
+      return false;
+    }
+  }
 
   move() {
+    if (this.eat()) {
 
+      this.board.apple.replace();
+
+    }
     this.segments.push(this.head().plus(Snake.MOVES[this.direction]));
-    this.segments.shift();
+    if (this.growth > 0) {
+      this.growth -= 1;
+    } else {
+      this.segments.shift();
+    }
 
   }
 
