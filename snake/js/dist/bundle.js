@@ -208,7 +208,7 @@ class View {
       this.render();
     } else {
       alert("GAME OVER");
-      
+      this.board = new __WEBPACK_IMPORTED_MODULE_1__board_js__["a" /* default */](20);
     }
   }
 

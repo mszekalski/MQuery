@@ -49,7 +49,7 @@ class View {
       this.render();
     } else {
       alert("GAME OVER");
-      
+      this.board = new Board(20);
     }
   }
 
