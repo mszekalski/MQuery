@@ -47,6 +47,9 @@ class View {
     if (this.board.snake.segments.length > 0) {
       this.board.snake.move();
       this.render();
+    } else {
+      alert("GAME OVER");
+      
     }
   }
 

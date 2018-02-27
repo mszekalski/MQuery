@@ -206,6 +206,9 @@ class View {
     if (this.board.snake.segments.length > 0) {
       this.board.snake.move();
       this.render();
+    } else {
+      alert("GAME OVER");
+      
     }
   }
 
@@ -321,6 +324,21 @@ class Snake {
     }
   }
 
+  valid() {
+    const head = this.head();
+
+    if (this.board.validPos(this.head()) === false) {
+      return false;
+    }
+
+    for (let i = 0; i < this.segments.length - 1; i++){
+      if (this.segments[i].equals(head)) {
+        return false;
+      }
+    }
+    return true;
+  }
+
   move() {
     if (this.eat()) {
 
@@ -333,6 +351,10 @@ class Snake {
       this.growth -= 1;
     } else {
       this.segments.shift();
+    }
+
+    if (this.valid() === false){
+      this.segments = [];
     }
 
   }
