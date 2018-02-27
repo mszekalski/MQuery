@@ -35,7 +35,6 @@ class View {
   updateClasses(coords, className) {
 
     $l('li').filter(`${className}`).removeClass(className);
-    
     for (let i = 0; i < coords.length; i++){
       const flat = (coords[i].i * this.board.dim) + coords[i].j;
       $l('li').eq(flat).addClass(className);

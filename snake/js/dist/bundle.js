@@ -194,7 +194,6 @@ class View {
   updateClasses(coords, className) {
 
     Object(__WEBPACK_IMPORTED_MODULE_0__lib_main_js__["default"])('li').filter(`${className}`).removeClass(className);
-    
     for (let i = 0; i < coords.length; i++){
       const flat = (coords[i].i * this.board.dim) + coords[i].j;
       Object(__WEBPACK_IMPORTED_MODULE_0__lib_main_js__["default"])('li').eq(flat).addClass(className);
@@ -304,6 +303,7 @@ class Snake {
     this.segments = [center];
     this.board = board;
     this.growth = 2;
+    this.turning = false;
 
   }
 
@@ -313,7 +313,7 @@ class Snake {
 
   eat() {
     if (this.head().equals(this.board.apple.location)) {
-      
+
       this.growth += 1;
       return true;
     } else {
@@ -328,6 +328,7 @@ class Snake {
 
     }
     this.segments.push(this.head().plus(Snake.MOVES[this.direction]));
+    this.turning = false;
     if (this.growth > 0) {
       this.growth -= 1;
     } else {
@@ -337,8 +338,11 @@ class Snake {
   }
 
   turn(dir) {
-
-    this.direction = dir;
+    if (this.turning === true) {
+      return;
+    }
+      this.turning = true;
+      this.direction = dir;
   }
 
 

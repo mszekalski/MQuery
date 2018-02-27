@@ -10,6 +10,7 @@ class Snake {
     this.segments = [center];
     this.board = board;
     this.growth = 2;
+    this.turning = false;
 
   }
 
@@ -19,7 +20,7 @@ class Snake {
 
   eat() {
     if (this.head().equals(this.board.apple.location)) {
-      
+
       this.growth += 1;
       return true;
     } else {
@@ -34,6 +35,7 @@ class Snake {
 
     }
     this.segments.push(this.head().plus(Snake.MOVES[this.direction]));
+    this.turning = false;
     if (this.growth > 0) {
       this.growth -= 1;
     } else {
@@ -43,8 +45,11 @@ class Snake {
   }
 
   turn(dir) {
-
-    this.direction = dir;
+    if (this.turning === true) {
+      return;
+    }
+      this.turning = true;
+      this.direction = dir;
   }
 
 
