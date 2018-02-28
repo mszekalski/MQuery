@@ -33,6 +33,7 @@ class Board {
     if (coord.i < 0 || coord.i >= this.dim || coord.j < 0 || coord.j >= this.dim) {
       return false;
     }
+    return true;
   }
 
 

@@ -8,7 +8,7 @@ class View {
     this.board = new Board(20);
     this.setUpGrid();
     $l(window).on("keydown", this.handleKeyEvent.bind(this));
-    setInterval(this.step.bind(this), 250);
+    setInterval(this.step.bind(this), 300);
 
 
   }

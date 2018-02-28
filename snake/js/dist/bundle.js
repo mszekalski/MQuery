@@ -167,7 +167,7 @@ class View {
     this.board = new __WEBPACK_IMPORTED_MODULE_1__board_js__["a" /* default */](20);
     this.setUpGrid();
     Object(__WEBPACK_IMPORTED_MODULE_0__lib_main_js__["default"])(window).on("keydown", this.handleKeyEvent.bind(this));
-    setInterval(this.step.bind(this), 250);
+    setInterval(this.step.bind(this), 300);
 
 
   }
@@ -277,6 +277,7 @@ class Board {
     if (coord.i < 0 || coord.i >= this.dim || coord.j < 0 || coord.j >= this.dim) {
       return false;
     }
+    return true;
   }
 
 
@@ -312,6 +313,15 @@ class Snake {
 
   head() {
     return this.segments.slice(-1)[0];
+  }
+
+  occupied(apple) {
+    for (let i = 0; i < this.segments.length; i++){
+      if (this.segments[i] === apple) {
+        return true;
+      }
+    }
+    return false;
   }
 
   eat() {
@@ -560,7 +570,12 @@ class Apple {
   }
 
   replace() {
-    this.location = new __WEBPACK_IMPORTED_MODULE_1__coord_js__["a" /* default */](Math.round(Math.random() * this.board.dim), Math.round(Math.random() * this.board.dim));
+
+    this.location = new __WEBPACK_IMPORTED_MODULE_1__coord_js__["a" /* default */](Math.floor(Math.random() * this.board.dim), Math.floor(Math.random() * this.board.dim));
+    if (this.board.snake.occupied(this.location) === true) {
+      this.replace();
+    }
+    return this.location;
   }
 
 }

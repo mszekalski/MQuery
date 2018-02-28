@@ -10,7 +10,12 @@ class Apple {
   }
 
   replace() {
-    this.location = new Coord(Math.round(Math.random() * this.board.dim), Math.round(Math.random() * this.board.dim));
+
+    this.location = new Coord(Math.floor(Math.random() * this.board.dim), Math.floor(Math.random() * this.board.dim));
+    if (this.board.snake.occupied(this.location) === true) {
+      this.replace();
+    }
+    return this.location;
   }
 
 }

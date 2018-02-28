@@ -18,6 +18,15 @@ class Snake {
     return this.segments.slice(-1)[0];
   }
 
+  occupied(apple) {
+    for (let i = 0; i < this.segments.length; i++){
+      if (this.segments[i] === apple) {
+        return true;
+      }
+    }
+    return false;
+  }
+
   eat() {
     if (this.head().equals(this.board.apple.location)) {
 
