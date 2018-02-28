@@ -27,6 +27,7 @@ html, body, div, span, h1, h2, h3, h4, a, ol, ul, li, form, label, article, asid
  figure {
   display: inline-block;
   border: 10px solid black;
+
  }
 
  .center-content li {
@@ -36,6 +37,11 @@ html, body, div, span, h1, h2, h3, h4, a, ol, ul, li, form, label, article, asid
 
    border: 1px solid black;
    background-color: rgba(0,0,0,0.4);
+ }
+
+ .game-div {
+   width: 463px;
+   height: 463px;
  }
 
  .center-header {
