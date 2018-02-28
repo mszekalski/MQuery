@@ -317,7 +317,7 @@ class Snake {
 
   occupied(apple) {
     for (let i = 0; i < this.segments.length; i++){
-      if (this.segments[i] === apple) {
+      if (this.segments[i].i === apple.i && this.segments[i].j === apple.j) {
         return true;
       }
     }
@@ -572,7 +572,7 @@ class Apple {
   replace() {
 
     this.location = new __WEBPACK_IMPORTED_MODULE_1__coord_js__["a" /* default */](Math.floor(Math.random() * this.board.dim), Math.floor(Math.random() * this.board.dim));
-    if (this.board.snake.occupied(this.location) === true) {
+    while (this.board.snake.occupied(this.location) === true) {
       this.replace();
     }
     return this.location;

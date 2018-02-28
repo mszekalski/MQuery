@@ -20,7 +20,7 @@ class Snake {
 
   occupied(apple) {
     for (let i = 0; i < this.segments.length; i++){
-      if (this.segments[i] === apple) {
+      if (this.segments[i].i === apple.i && this.segments[i].j === apple.j) {
         return true;
       }
     }
