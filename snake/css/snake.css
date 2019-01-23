@@ -61,6 +61,7 @@ figure {
 .game-div {
   width: 463px;
   height: 463px;
+  position: relative;
 }
 
 .center-header {
@@ -194,4 +195,28 @@ a:hover {
 a:active {
   text-decoration: underline;
   color: red;
+}
+
+.start-div {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: fit-content;
+  height: fit-content;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  border: 5px solid red;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.start-content {
+  margin: 5px;
+  font-weight: bold;
+  font-size: 15px;
 }
