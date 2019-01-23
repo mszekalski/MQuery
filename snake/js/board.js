@@ -1,4 +1,3 @@
-// const Snake = require('./snake.js');
 import $l from "../../lib/main.js";
 import Snake from "./snake.js";
 import Apple from "./apple.js";

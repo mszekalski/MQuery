@@ -1,4 +1,3 @@
-// const Board = require('./board');
 import $l from "../../lib/main.js";
 import Board from "./board.js";
 
@@ -7,6 +6,10 @@ class View {
     this.$el = $el;
     this.board = new Board(20);
     this.setUpGrid();
+  }
+
+  start() {
+    $l(".start-div").css("display", "none");
     $l(window).on("keydown", this.handleKeyEvent.bind(this));
     setInterval(this.step.bind(this), 300);
   }
