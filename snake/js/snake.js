@@ -1,17 +1,19 @@
 // const Coord = require('./coord.js');
-import $l from '../../lib/main.js';
-import Coord from './coord.js';
+import $l from "../../lib/main.js";
+import Coord from "./coord.js";
 
 class Snake {
   constructor(board) {
-    this.direction = 'N';
+    this.direction = "N";
     this.board = board;
-    const center = new Coord(Math.floor(board.dim/2), Math.floor(board.dim/2));
+    const center = new Coord(
+      Math.floor(board.dim / 2),
+      Math.floor(board.dim / 2)
+    );
     this.segments = [center];
     this.board = board;
     this.growth = 2;
     this.turning = false;
-
   }
 
   head() {
@@ -19,7 +21,7 @@ class Snake {
   }
 
   occupied(apple) {
-    for (let i = 0; i < this.segments.length; i++){
+    for (let i = 0; i < this.segments.length; i++) {
       if (this.segments[i].i === apple.i && this.segments[i].j === apple.j) {
         return true;
       }
@@ -29,7 +31,6 @@ class Snake {
 
   eat() {
     if (this.head().equals(this.board.apple.location)) {
-
       this.growth += 1;
       return true;
     } else {
@@ -44,7 +45,7 @@ class Snake {
       return false;
     }
 
-    for (let i = 0; i < this.segments.length - 1; i++){
+    for (let i = 0; i < this.segments.length - 1; i++) {
       if (this.segments[i].equals(head)) {
         return false;
       }
@@ -54,9 +55,7 @@ class Snake {
 
   move() {
     if (this.eat()) {
-
       this.board.apple.replace();
-
     }
     this.segments.push(this.head().plus(Snake.MOVES[this.direction]));
     this.turning = false;
@@ -66,23 +65,18 @@ class Snake {
       this.segments.shift();
     }
 
-    if (this.valid() === false){
+    if (this.valid() === false) {
       this.segments = [];
     }
-
   }
 
   turn(dir) {
     if (this.turning === true) {
       return;
     }
-      this.turning = true;
-      this.direction = dir;
+    this.turning = true;
+    this.direction = dir;
   }
-
-
-
-
 }
 
 Snake.MOVES = {

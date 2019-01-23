@@ -1,58 +1,77 @@
+html,
+body,
+div,
+span,
+h1,
+h2,
+h3,
+h4,
+a,
+ol,
+ul,
+li,
+form,
+label,
+article,
+aside,
+figure,
+figcaption,
+footer,
+header,
+nav {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
 
-html, body, div, span, h1, h2, h3, h4, a, ol, ul, li, form, label, article, aside, figure, figcaption, footer, header, nav {
-   margin: 0;
-   padding: 0;
-   border: 0;
-   font-size: 100%;
-   font: inherit;
-   vertical-align: baseline;
- }
+body {
+  background-image: url("../assets/snake.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  font-family: helvetica;
+}
 
- body {
-   background-image: url("../assets/snake.jpg");
-   background-repeat: no-repeat;
-   background-size: cover;
-   display: flex;
-   font-family: helvetica;
- }
+ol,
+ul {
+  list-style: none;
+}
 
- ol, ul {
-   list-style: none;
- }
+img {
+  width: 100%;
+}
 
- img {
-   width: 100%
- }
-
- figure {
+figure {
   display: inline-block;
   border: 10px solid black;
+}
 
- }
+.center-content li {
+  width: 20px;
+  height: 20px;
+  float: left;
 
- .center-content li {
-   width: 20px;
-   height: 20px;
-   float: left;
+  border: 1px solid black;
+  background-color: rgba(0, 0, 0, 0.4);
+}
 
-   border: 1px solid black;
-   background-color: rgba(0,0,0,0.4);
- }
+.game-div {
+  width: 463px;
+  height: 463px;
+}
 
- .game-div {
-   width: 463px;
-   height: 463px;
- }
+.center-header {
+  width: 250px;
+  text-align: center;
 
- .center-header {
- width: 250px;
- text-align: center;
-
- margin: 20px;
- border: 5px solid red;
- box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
- border-radius: 10px;
- background: rgba(255,255,255,.5);
+  margin: 20px;
+  border: 5px solid red;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.5);
 }
 
 .author-container {
@@ -70,18 +89,17 @@ html, body, div, span, h1, h2, h3, h4, a, ol, ul, li, form, label, article, asid
   font-size: 35px;
 }
 
+li.snake {
+  background-color: green;
+  opacity: 1;
+}
 
- li.snake {
-   background-color: green;
-   opacity: 1;
- }
+li.apple {
+  background-color: red;
+  opacity: 1;
+}
 
- li.apple {
-   background-color: red;
-   opacity: 1;
- }
-
- .right-content {
+.right-content {
   width: 33.3333333%;
   display: flex;
   align-items: center;
@@ -114,22 +132,20 @@ html, body, div, span, h1, h2, h3, h4, a, ol, ul, li, form, label, article, asid
 }
 
 .direction-content-container {
-
-  background: rgba(255,255,255,.5);
+  background: rgba(255, 255, 255, 0.5);
   border-radius: 10px;
   margin: 20px;
   border: 5px solid red;
-  box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
 }
 
 .direction-content {
   font-size: 20px;
   margin: 20px;
-
 }
 
 .direction-header {
-  background: rgba(255,255,255,.5);
+  background: rgba(255, 255, 255, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -140,43 +156,42 @@ html, body, div, span, h1, h2, h3, h4, a, ol, ul, li, form, label, article, asid
   margin-left: 40px;
   margin-right: 40px;
   border: 5px solid red;
-  box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
 }
 
 .icons {
   margin-top: 28px;
   border: 5px solid red;
-  box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
   border-radius: 10px;
 
   font-size: 5.5em;
   text-shadow: 1px 1px 1px;
-  background: rgba(255,255,255,.5);
-
+  background: rgba(255, 255, 255, 0.5);
 }
 
-.icons li{
+.icons li {
   margin: 10px;
   margin-left: 20px;
   margin-right: 20px;
 }
 
 a:link {
-    text-decoration: none;
-    color: green
+  text-decoration: none;
+  color: green;
 }
 
 a:visited {
-    text-decoration: none;
-    color: green
+  text-decoration: none;
+  color: green;
 }
 
 a:hover {
-    text-decoration: underline;
-    color: red;
+  text-decoration: underline;
+  color: red;
 }
 
 a:active {
-    text-decoration: underline;
-    color: red;
+  text-decoration: underline;
+  color: red;
 }
